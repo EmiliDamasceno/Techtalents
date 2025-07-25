@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css" />
+
+      <style>
+           .btn-login {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-login:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+        <div class="container">
+         
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="vagas.php" class="nav-link" data-section="vagas">Vagas</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    ☰
+                </button>
+            </nav>
+
+          
+            <div class="logo-container" onclick="goHome()">
+                
+                <img src="img/logo.png" alt="Tech Talents Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                
+            </div>
+
+        </div>
+    </header>
+   
+    <main>
+      <div class="form-container">
+        <form method="POST" action="login.php">
+          <h2>LOGIN</h2>
+
+          <div class="input-box">
+            <input name="email" placeholder="E-mail" type="email" />
+          </div>
+          <div class="input-box">
+            <input name="senha" placeholder="Senha" type="password" />
+          </div>
+          <div class="remember-forgot">
+           <!-- <label>
+              <input type="checkbox" name="lembrar" /> Lembrar senha
+            </label> -->
+          </div>
+
+         <button type="submit" name="submit" class="btn-login">Login</button><br>
+
+         
+         <br> <div class="register-link">
+            <p>Não tem conta? <a href="cadastro.php">Cadastre-se</a></p>
+          </div>
+        </form>
+      </div>
+    </main>
+
+   <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Sou</h4>
+                    <ul>
+                        <li><a href="#">Minhas Candidaturas</a></li>
+                        <li><a href="#">Currículo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Vagas</a></li>
+                        <li><a href="#">Testes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                     <img src="img/logo.png" alt="Tech Talents Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                
+                </div>
+                <div class="footer-info">
+                    © 2023 Talentos. All rights reserved. | Privacy Policy | Terms of Service
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exibir alerta de erro -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("erro") === "1") {
+        alert("E-mail ou senha inválidos. Tente novamente.");
+      }
+    </script>
+  </body>
+</html>
